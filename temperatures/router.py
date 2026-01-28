@@ -10,7 +10,7 @@ from temperatures import schemas, crud, service
 router = APIRouter()
 
 
-@router.get("/temperatures", response_model=List[schemas.TemperatureRead])
+@router.get("/", response_model=List[schemas.TemperatureRead])
 async def get_temperatures(db: AsyncSession = Depends(get_db), city_id: int = None):
     return await crud.get_all_temperatures(db, city_id)
 
